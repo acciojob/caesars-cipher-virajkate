@@ -13,7 +13,23 @@ const lookup = {
 function rot13(encodedStr){
    let decodedArr = []; // Your Result goes here
   // Only change code below this line
-
+  // Split the input string into an array of characters.
+  return str.split('')
+    // Map each character to a decoded version using the rot13 algorithm.
+    .map(function(char) {
+      // Convert the character to its Unicode value.
+      var c = char.charCodeAt(0);
+      // If the character is not an uppercase letter, return it unchanged.
+      if (c < 65 || c > 90) {
+        return char;
+      }
+      // Otherwise, apply the rot13 algorithm to the character and return the result.
+      else {
+        return String.fromCharCode(((c - 65 + 13) % 26) + 65);
+      }
+    })
+    // Join the array of characters back into a string.
+    .join('');
   return ;//return decodedArr
 }
 
